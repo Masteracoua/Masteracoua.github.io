@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+	<title>Послуги Сантехніка в Києві</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+		:root {
+			scroll-behavior: smooth;
+		}
+
+		body {
+			--side: max(0px, calc(50vw - 512px));
+			margin: 0;
+			font-family: 'Noto Sans', sans-serif;
+		}
+
+		.column {
+			margin-inline: var(--side);
+		}
+
+		header {
+			display: grid;
+			grid-template-columns: max-content auto max-content max-content auto max-content;
+			padding-inline: 10px;
+		}
+
+		header > a {
+			text-decoration: none;
+			color: black;
+			align-self: end;
+			line-height: 3em;
+			padding-inline: 30px;
+			font-size: 1.2em;
+		}
+
+		.numbers {
+			display: flex;
+			flex-direction: column;
+			gap: 2px;
+			font-size: 1.1em;
+			font-weight: bold;
+			justify-content: center;
+			letter-spacing: 1px;
+		}
+
+		.numbers > a {
+			text-decoration: none;
+			color: inherit;
+			transition: transform .2s ease-out;
+		}
+
+		.numbers > a:hover {
+			transform: scale(1.1);
+		}
+
+		#sec-1 {
+			height: 800px;
+			background: url('./images/cover1.png'), center/cover url('./images/bg1.jpg');
+			filter: brightness(.9);
+		}
+
+		.prompt,
+		.sub {
+			text-align: center;
+			font-weight: 600;
+			text-transform: uppercase;
+			text-shadow: 0 1px white;
+		}
+
+		.prompt {
+			font-size: 2.7em;
+			background-color: #fff3;
+			padding-block: 0.5em;
+		}
+
+		.prompt > span {
+			color: #0084cf;
+			font-size: 1.5em;
+		}
+
+		.sub {
+			font-size: 2em;
+			font-weight: bold;
+			letter-spacing: -0.05em;
+		}
+
+		.announcement {
+			margin-top: 20px
+		}
+
+		.contacts {
+			margin-top: 150px;
+		}
+
+		.icons {
+			display: flex;
+			justify-content: center;
+			gap: 40px;
+			font-size: 60px;
+		}
+
+		.icons img {
+			height: .8em;
+			border-radius: .1em;
+			box-shadow: 1px 1px 4px gray;
+			cursor: pointer;
+			transition: transform .2s ease-out;
+		}
+
+		.icons > *:hover {
+			transform: scale(1.1);
+		}
+
+		.tagline {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			box-shadow: 0 0 8px #888;
+			margin-top: 15px;
+			border-radius: 25px;
+			padding: 28px 22px;
+			gap: 25px;
+			font-size: .9em;
+		}
+
+		.tagline > div {
+			display: flex;
+			gap: 8px;
+		}
+
+		.tagline > div > div::first-line {
+			font-weight: 600;
+			font-size: 1.3em;
+		}
+
+		.tagline img {
+			height: 72px;
+		}
+
+		.title {
+			margin-block: 40px;
+			font-size: 3em;
+			font-weight: bold;
+			text-align: center;
+			letter-spacing: -.05em;
+			text-transform: uppercase;
+		}
+
+		.title::before,
+		.title::after {
+			content: '';
+			display: inline-block;
+			width: 4em;
+			height: .3em;
+			border-top: .05em solid;
+			margin-inline: .1em;
+		}
+
+		.services {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			column-gap: min(170px, calc(50vw - 342px));
+			margin-inline: 30px;
+			text-align: center;
+			letter-spacing: -.05em;
+		}
+
+		.services > div > span {
+			font-size: 1.6em;
+		}
+
+		.services > p {
+			grid-column: 1 / 4;
+		}
+
+		#sec-3 {
+			height: 427px;
+			background: url('./images/cover1.png'), center/cover url('./images/bg2.jpg');
+			filter: brightness(.9);
+			text-align: center;
+		}
+
+		#sec-3 > div {
+			height: inherit;
+			background-color: #fff9;
+		}
+
+		.reason > span {
+			font-weight: bold;
+		}
+
+		.checks {
+			display: grid;
+			grid-template-columns: 1fr .7fr;
+			margin-top: 40px;
+			padding-inline: 10px;
+			text-align: start;
+			font-size: 1.5em;
+		}
+
+		.checks > div::before {
+			content: url('./images/checkbox.png');
+			vertical-align: sub;
+		}
+
+		.roadmap {
+			position: relative;
+			height: 410px;
+			background-image: url('./images/arrows.png');
+			background-repeat: no-repeat;
+			background-position-x: center;
+		}
+
+		.roadmap > div {
+			display: flex;
+			position: absolute;
+			flex-direction: column;
+			width: 200px;
+			text-align: center;
+			font-size: .9em;
+		}
+
+		.roadmap img {
+			width: 97px;
+			align-self: center;
+		}
+
+		.roadmap > div > div:first-of-type {
+			font-weight: 600;
+			text-transform: uppercase;
+		}
+
+		.roadmap > div > div:last-of-type {
+			font-size: .95em;
+		}
+
+		#sec-4 > img {
+			width: 100%;
+			height: 246px;
+			object-position: center;
+			object-fit: contain;
+		}
+
+		footer {
+			background-color: gray;
+			color: white;
+			padding: 10px;
+		}
+
+		footer > div {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	</style>
+</head>
+<body>
+	<header class="column">
+		<img src="./images/logo_san.png">
+		<div></div>
+		<a href="#sec-3">Про Нас</a>
+		<a href="#services">Наші Послуги</a>
+		<div></div>
+		<div class="numbers">
+			<a href="tel:+380673290518">☎ (067) 329-05-18</a>
+			<a href="tel:+380958281214">☎ (095) 828-12-14</a>
+			<a href="tel:+380939918459">☎ (093) 991-84-59</a>
+		</div>
+	</header>
+	<main>
+		<div id="sec-1">
+			<div style="height: 70px"></div>
+			<div class="prompt">
+				Якісно виконаємо<br>
+				всі види робіт по<br>
+				<span>сантехніці</span><br>
+				в Києві і Київській області
+			</div>
+			<div class="sub announcement">Послуги сантехніка | Виклик майстра на дім</div>
+			<div class="prompt sub contacts">
+				Наші контакти:
+				<div class="icons">
+					<a href="mailto:mastera.co.ua0@gmail.com?subject=Зворотній+зв'язок&body=Ім'я:+%0aНомер:+%0aЧас+для+дзвінка:+">
+						<img src="./images/gmail.svg"></img>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div id="sec-2" class="column">
+			<div class="tagline">
+				<div>
+					<img src="./images/plus1.png">
+					<div>
+						Якість<br>
+						В роботі використовуються лише перевірені матеріали
+					</div>
+				</div>
+				<div>
+					<img src="./images/plus2.png">
+					<div>
+						Професіоналізм<br>
+						Досвідчені кваліфіковані майстри
+					</div>
+				</div>
+				<div>
+					<img src="./images/plus3.png">
+					<div>
+						Гарантія<br>
+						На всі види робіт надається гарантія
+					</div>
+				</div>
+			</div>
+			<div id="services" class="title">Наші Послуги</div>
+			<div class="services">
+				<img src="./images/service1.png">
+				<img src="./images/service2.png">
+				<img src="./images/service3.png">
+				<div>
+					<span>Консультація</span><br>
+					Виїзд майстра та консультація безкоштовно!<br>
+					За умови виконання роботи
+				</div>
+				<div>
+					<span>Усунення течі</span><br>
+					Оперативний ремонт та усунення течі в трубах, кранах, у сантехнічних приладах
+				</div>
+				<div>
+					<span>Ремонт і заміна</span><br>
+					Усі види робіт з ремонту, заміни та підключення сантехніки
+				</div>
+				<p></p>
+				<img src="./images/service4.png">
+				<img src="./images/service5.png">
+				<img src="./images/service6.png">
+				<div>
+					<span>Чистка заторів</span><br>
+					Прочищення каналізації, у квартирі та приватному будинку. Чищення сифонів
+				</div>
+				<div>
+					<span>Установка та ремонт унітазів</span><br>
+					Ремонт та встановлення унітазів біде. Ремонт бачка унітазу
+				</div>
+				<div>
+					<span>Встановлення та заміна ванної</span><br>
+					Установка та заміна будь-якої ванної кімнати та аксесуарів
+				</div>
+				<p></p>
+				<img src="./images/service7.png">
+				<img src="./images/service8.png">
+				<img src="./images/service9.png">
+				<div>
+					<span>Установка умивальника.</span><br>
+					Встановлення та заміна умивальників будь-якого типу
+				</div>
+				<div>
+					<span>Установка та ремонт кранів.</span><br>
+					Ремонт та установка будь-яких кранів та змішувачів
+				</div>
+				<div>
+					<span>Установка та облік лічильників.</span><br>
+					Встановлення та заміна лічильників води
+				</div>
+				<p></p>
+				<img src="./images/service10.png">
+				<img src="./images/service11.png">
+				<img src="./images/service12.png">
+				<div>
+					<span>Встановлення радіаторів</span><br>
+					Встановлення та заміна будь-яких радіаторів опалення
+				</div>
+				<div>
+					<span>Підключення душових кабін</span><br>
+					Складання та підключення будь-яких душових кабін
+				</div>
+				<div>
+					<span>Встановлення будь-яких сантехнічних приладів</span>
+				</div>
+				<p></p>
+				<img src="./images/service13.png">
+				<img src="./images/service14.png">
+				<img src="./images/service15.png">
+				<div>
+					<span>Розведення та заміна сантехніки під ключ</span>
+				</div>
+				<div>
+					<span>Підключення та ремонт пральних машин</span>
+				</div>
+				<div>
+					<span>Чистка, ремонт та установка бойлерів</span>
+				</div>
+				<p></p>
+			</div>
+		</div>
+		<div id="sec-3">
+			<div>
+				<div style="height: 1px"></div>
+				<div class="title">Чому саме ми</div>
+				<div class="reason column">
+					<span>Перше і найголовніше! Ми працюємо безпосередньо з майстрами, а не через посередників та фірми.</span><br>
+					Ми успішно виконуємо роботи з ремонту та монтажу сантехніки вже більше 15 років.<br>
+					Роботи проводяться як в Києві, так і в Київській області. Ми пропонуємо послуги з ремонту, встановлення та заміни сантехнічного обладнання з використанням якісних матеріалів. Ми швидко, професійно та якісно виконаємо будь-яку роботу, пов'язану з ремонтом або монтажем сантехніки в вашому будинку або квартирі.
+				</div>
+				<div class="checks column">
+					<div>Працюємо безпосередньо з майстром</div>
+					<div>Працюємо без вихідних</div>
+					<div>Доступні ціни на наші послуги</div>
+					<div>Гарантія на всі види робіт</div>
+				</div>
+			</div>
+		</div>
+		<div id="sec-4" class="column">
+			<div class="title">Як ми працюємо</div>
+			<div class="roadmap">
+				<div style="left:160px;top:-25px">
+					<img src="./images/mapitem1.png">
+					<div>Дзвінок або заявка за контактами</div>
+					<div>Ви залишаєте заявку на виклик майстра у зручний для вас час</div>
+				</div>
+				<div style="left:505px;top:-25px">
+					<img src="./images/mapitem2.png">
+					<div>Ми передзвонимо вам</div>
+					<div>В найближчому часі, для уточнення деталей</div>
+				</div>
+				<div style="left:710px;top:208px">
+					<img src="./images/mapitem3.png">
+					<div>Приїзд фахівця</div>
+					<div>В обумовлений час до Вас приїжджає наш майстер та виконує роботу</div>
+				</div>
+				<div style="left:340px;top:215px">
+					<img src="./images/mapitem4.png">
+					<div>Сплачуєте послугу</div>
+					<div>Коли робота виконана, ви приймаєте результат роботи та оплачуєте замовлення</div>
+				</div>
+				<div style="left:-20px;top:215px">
+					<img src="./images/mapitem5.png">
+					<div>Гарантійне обслуговування</div>
+					<div>Терміном до 1 року. На всі наші роботи надається обов'язкова гарантія</div>
+				</div>
+			</div>
+			<img src="./images/handshake.png">
+		</div>
+	</main>
+	<footer>
+		<div class="column">
+			<div>м. Київ і Київська область</div>
+			<div class="icons">
+				<a href="mailto:mastera.co.ua0@gmail.com?subject=Зворотній+зв'язок&body=Ім'я:+%0aНомер:+%0aЧас+для+дзвінка:+">
+					<img src="./images/gmail.svg"></img>
+				</a>
+			</div>
+			<div class="numbers">
+				<a href="tel:+380673290518">☎ (067) 329-05-18</a>
+				<a href="tel:+380958281214">☎ (095) 828-12-14</a>
+				<a href="tel:+380939918459">☎ (093) 991-84-59</a>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
